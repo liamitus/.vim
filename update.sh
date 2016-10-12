@@ -2,7 +2,7 @@
 #
 # Updates Vim plugins.
 #
-# All credit for this file goes to Ian Langworth <statico>
+# All credit for the original file goes to Ian Langworth <statico>
 # from https://github.com/statico/dotfiles/blob/master/.vim/update.sh
 #
 # Update everything (long):
@@ -39,12 +39,23 @@ fi
 # don't work.
 repos=(
 
-  https://github.com/docunext/closetag.vim.git
-  https://github.com/Lokaltog/vim-powerline.git
+  https://github.com/tpope/vim-pathogen.git
+  https://github.com/tpope/vim-abolish.git
+  https://github.com/tpope/vim-surround.git
+  https://github.com/tpope/vim-sensible.git
+  https://github.com/tpope/vim-fugitive.git
+  https://github.com/vim-airline/vim-airline
   https://github.com/scrooloose/nerdcommenter.git
   https://github.com/scrooloose/nerdtree.git
+  https://github.com/ctrlpvim/ctrlp.vim.git
+  https://github.com/airblade/vim-gitgutter.git
   https://github.com/scrooloose/syntastic.git
-  https://github.com/tpope/vim-pathogen.git
+  https://github.com/docunext/closetag.vim.git
+  https://github.com/mtth/scratch.vim.git
+
+  https://github.com/kchmck/vim-coffee-script.git
+  https://github.com/elzr/vim-json.git
+  https://github.com/ap/vim-css-color.git
   
   )
 
@@ -70,7 +81,6 @@ other=(
   'coffee/colors;https://raw.githubusercontent.com/duythinht/vim-coffee/master/colors/coffee.vim'
   'molokai/colors;https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim'
  # 'glsl/syntax;http://www.vim.org/scripts/download_script.php?src_id=3194;glsl.vim'
-
 
   )
 
