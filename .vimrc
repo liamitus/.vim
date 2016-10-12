@@ -1,4 +1,4 @@
-" fish has issues so let's use bash
+" fish has issues so let's use zsh
 set shell=zsh
 
 " Run pathogen
@@ -16,16 +16,33 @@ endif
 " colorscheme molokai
 let g:zenburn_transparent=1
 colorscheme zenburn
-" colorscheme wombat
+" Override the black background so we can see the iTerm2 background image
+hi Normal guibg=NONE ctermbg=NONE
+
+" Airline config
+set laststatus=2
+let g:Powerline_symbols = 'unicode'
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
 
 " Set the tab width
 set expandtab tabstop=4 shiftwidth=4 softtabstop=4
 
 " Mappings
+set statusline=%{fugitive#statusline()}
+set backspace=indent,eol,start
+let mapleader = "\<Space>"
 nmap \l :setlocal number!<CR>
 nmap \o :set paste!<CR>
 nmap j gj
 nmap k gk
+nmap ., :grep -Rin --exclude \*/migrations/\* --include \*.py 
+nmap .c :grep -Rin --include \*.coffee 
+nmap .h :grep -Rin --exclude \*/site-packages/\* --include \*.html 
+nmap .s :grep -Rin --include \*.scss 
 cnoremap <C-a>  <Home>
 cnoremap <C-b>  <Left>
 cnoremap <C-f>  <Right>
@@ -59,6 +76,9 @@ nmap \M :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<CR>
 nmap \m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
 nmap \w :setlocal wrap!<CR>:setlocal wrap?<CR>
 nmap ; :CtrlPBuffer<CR>
+nmap <C-N> :cnext<CR>
+nmap <C-P> :cprev<CR>
+set wildignore+=**/*.build.*,*.swp,*/node_modules/*,*/migrations/*,*/site-packages/*
 
 " Move a line up or down
 function! s:swap_lines(n1, n2)
